@@ -13,11 +13,21 @@
         .bg2{background-color: yellow;}
         .bg3{background-color: green;}
         .bg4{background-color: purple;}
+        .active{color: aqua;}
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="bg section bg1"></div>
+        <div class="bg section bg1">
+            <div class="title">
+                <a href="#" class="title1">제목1</a>
+                <a href="#" class="title2">제목2</a>
+            </div>
+            <div class="contents">
+                <p class="con con1">제이쿼리는 자바스크립트 라이브러리입니다.</p>
+                <p class="con con2">제이쿼리는 DOM 이벤트와 스타일을 자바스크립트보다 쉽게 제작할 수 있습니다</p>
+            </div>
+        </div>
         <div class="bg section bg2"></div>
         <div class="bg section bg3"></div>
         <div class="bg section bg4"></div>
@@ -29,6 +39,22 @@
         $('.wrap').fullpage({
             scrollBar:true,
         })
+
+        $('.con2').hide();
+        $('.title a:nth-child(1)').addClass('active')
+        $('.title a:nth-child(1)').on('click',function(){
+            $('.title a:nth-child(1)').addClass('active')
+            $('.title a:nth-child(2)').removeClass('active')
+            $('.con1').show();
+            $('.con2').hide();
+        })
+        $('.title a:nth-child(2)').on('click',function(){
+            $('.title a:nth-child(1)').removeClass('active')
+            $('.title a:nth-child(2)').addClass('active')
+            $('.con1').hide();
+            $('.con2').show();
+        })
+
     </script>
 </body>
 </html>
